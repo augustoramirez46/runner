@@ -1,4 +1,4 @@
-let fondo;
+let fondo= [];;
 let nave;
 let f = 0;
 let pantalla;
@@ -8,20 +8,21 @@ let tipo;
 let ruta;
 let k;
 
+function preload(){
+    for (let i = 0; i <241; i++) {
+        if( i < 101){ 
+          fondo.push(loadImage("fondo/bg" + i + ".png"));
+     //    print("fondo" + i);
+        }else{if(i>=101){
+         fondo.push(loadImage("fondo/bg" + "0" + i + ".png"));
+    //     print("fondo" + i);
+        }
+     }
+     }
 
+}
 function setup() {
     createCanvas(1200, 700);
-    fondo = [];
-    for (let i = 0; i <241; i++) {
-       if( i < 101){ 
-         fondo.push(loadImage("fondo/bg" + i + ".png"));
-    //    print("fondo" + i);
-       }else{if(i>=101){
-        fondo.push(loadImage("fondo/bg" + "0" + i + ".png"));
-   //     print("fondo" + i);
-       }
-    }
-    }
     nave = new Personaje(2);
     bombas = new Bomba(1);
     pantalla = 2;
@@ -79,6 +80,7 @@ return 0;
   
 
 function escenario(){
+    imageMode (CORNER)
 
     frameRate(30);
     image(fondo[f], 0, 0);
