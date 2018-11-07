@@ -2,6 +2,12 @@ let fondo;
 let nave;
 let f = 0;
 let pantalla;
+let bombas;
+let obstaculo = [];
+let tipo;
+let ruta;
+let k;
+
 
 function setup() {
     createCanvas(1200, 700);
@@ -9,15 +15,17 @@ function setup() {
     for (let i = 0; i <241; i++) {
        if( i < 101){ 
          fondo.push(loadImage("fondo/bg" + i + ".png"));
-        print("fondo" + i);
+    //    print("fondo" + i);
        }else{if(i>=101){
         fondo.push(loadImage("fondo/bg" + "0" + i + ".png"));
-        print("fondo" + i);
+   //     print("fondo" + i);
        }
     }
     }
     nave = new Personaje(2);
+    bombas = new Bomba(1);
     pantalla = 2;
+    obstaculo.push(bombas);
 
 }
 
@@ -28,6 +36,16 @@ function draw() {
 
     case 2:
      escenario();  
+     bombasAzar();
+     for(i=0; i < obstaculo.length; i++){
+         if(i != null){
+         // let azarC = random(1,3);
+         obstaculo[i].dibujar();
+        // obstaculo[i].mover();
+         }
+     }
+
+
      break;  
 
 
@@ -36,8 +54,10 @@ function draw() {
  }
 
  pillarMiMouse();
- ellipse(width/2, height/2, 15,15);
+
  nave.dibujar();
+ //bombas.dibujar();
+ //bombas.movimientoSexi();
 
 }
 
@@ -74,5 +94,18 @@ function pillarMiMouse(){
     textAlign(CENTER);
     text("(" + floor(mouseX) + ", " + floor(mouseY) + ")", mouseX, mouseY);
   }
+
+function bombasAzar(){
+    if(frameCount % 20 == 0){
+      let y = [1,2,3]
+      azarC = random(y);
+     // azar = random(1,2);
+     //  print("azar" + "=" + azar);
+     print("ruta" + "=" + azarC);
+     k = new Bomba(azarC);
+     obstaculo.push(k);
+    }
+    
+}
 
 

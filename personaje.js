@@ -1,12 +1,12 @@
 class Personaje {
-    constructor(tipo) {
+    constructor(tipo, estado) {
         // constructor(tipo){
-        this.tipo = tipo;
-        this.pX = width / 2;
-        this.pY = 630;
-        this.estado = 2;
-        //  }
-
+            this.tipo = tipo;
+            this.pX = width / 2;
+            this.pY = 630;
+            this.estado = 2;
+            //  }
+    
     }
     dibujar() {
 
