@@ -11,10 +11,11 @@ class Personaje {
              this.nav1.push(loadImage("nav1/1nav"+(this.i+1) + ".png"));
             }
             console.log("nave=" + this.nav1.length)
-            this.tipo = 2;
+            this.tipo = tipo;
             this.pX = width / 2;
-            this.pY = 600;
+            this.pY = 580;
             this.estado = 2;
+            this.nvv = 2;
             //  }
     
     }
@@ -25,11 +26,11 @@ class Personaje {
             case 1:
                 fill(0, 255, 0);
 
-                image(this.nav0[this.estado-1], this.pX, this.pY)
+                image(this.nav0[this.nvv], this.pX, this.pY)
                 break;
             case 2:
                 fill(255, 0, 0);
-                image(this.nav1[this.estado-1], this.pX, this.pY)                
+                image(this.nav1[this.nvv], this.pX, this.pY)                
                 break;
             default:
                  
@@ -38,21 +39,24 @@ class Personaje {
         switch(this.estado){
             case 1:
              this.pX = 165; 
+             this.nvv = 0;
 
              break;
 
             case 2:
              this.pX = width/2;
+             this.nvv = 1;
              break;            
             
             case 3:
              this.pX = 1040;
+             this.nvv = 2;
              break;
         }
         if(frameCount % 10 == 0){
            this.pY += 15;
            if(frameCount % 20 == 0){
-               this.pY = 600;
+               this.pY = 580;
            }
         }
     }
