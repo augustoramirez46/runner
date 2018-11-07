@@ -2,8 +2,8 @@ class Bomba {
 
 
     constructor(ruta) {
-    //  let imagen;
-    this.tam=10;
+        this.bomba = loadImage("cosos/bomba.png")        
+        this.tam=0.1;
      // imagen.push(loadImage("fondo.jpg"));
         // constructor(tipo){
         this.tipo = tipo;
@@ -21,7 +21,7 @@ class Bomba {
     }
 
     dibujar(){
-
+     imageMode(CENTER);
     switch(this.ruta){
       case 1:
       fill(255);
@@ -34,9 +34,8 @@ class Bomba {
       break;
     }
      
-        ellipse(this.pX, this.pY, this.tam, this.tam);
-    this.mover();
-     //movimientoSexi();
+     image(this.bomba, this.pX, this.pY, this.tam, this.tam);
+;
     }
 
   
@@ -49,6 +48,7 @@ class Bomba {
                 this.pX -= this.velX;
                 this.pY += this.velY;
                 this.tam++;
+                this.tam = this.tam * 1.08
     
                 this.velY = this.velY * 1.05
                 this.velX = this.velX * 1.05
@@ -61,6 +61,7 @@ class Bomba {
               //  this.pX -= this.velX;
                 this.pY += this.velY;
                 this.tam++;
+                this.tam = this.tam * 1.08
     
                 this.velY = this.velY * 1.05
              //   this.velX = this.velX * 1.05
@@ -76,6 +77,7 @@ class Bomba {
              this.pX += this.velX;
              this.pY += this.velY;
              this.tam++;
+             this.tam = this.tam * 1.08
              this.velY = this.velY * 1.05
              this.velX = this.velX * 1.05
            }

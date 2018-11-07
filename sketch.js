@@ -42,8 +42,11 @@ function draw() {
          if(i != null){
          // let azarC = random(1,3);
          obstaculo[i].dibujar();
-        // obstaculo[i].mover();
-         }
+         obstaculo[i].mover();
+          if(obstaculo[i].pY > height+200){
+              obstaculo.splice(i,1);
+          }       
+      }
      }
 
 

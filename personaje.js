@@ -13,7 +13,7 @@ class Personaje {
             console.log("nave=" + this.nav1.length)
             this.tipo = 2;
             this.pX = width / 2;
-            this.pY = 630;
+            this.pY = 600;
             this.estado = 2;
             //  }
     
@@ -49,10 +49,12 @@ class Personaje {
              this.pX = 1040;
              break;
         }
-
-     //   if(frameCount % 10 == 0){
-       //     this.pY = this.pY + random(-1, 1)*5
-       // }
+        if(frameCount % 10 == 0){
+           this.pY += 15;
+           if(frameCount % 20 == 0){
+               this.pY = 600;
+           }
+        }
     }
 
     moverDer(){
